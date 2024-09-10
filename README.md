@@ -5,5 +5,5 @@ Uniswap v4 comes with the `Deployers.sol` helper contract that we have extensive
 `Deployers` unfortunately cannot be used inside a script to deploy to Sepolia, so we must do that deployment ourselves. Please see `script/V4Deployer.s.sol` for a simple example. You can run it like this:
 
 ```sh
-forge script script/V4Deployer.s.sol --rpc-url <rpc_url> --private-key <private_key>
+forge script script/V4Deployer.s.sol --rpc-url <rpc_url> --private-key <private_key> --broadcast
 ```
