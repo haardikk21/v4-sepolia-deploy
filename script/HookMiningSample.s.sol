@@ -1,3 +1,6 @@
+// NOTE: This is based on V4PreDeployed.s.sol
+// You can make changes to base on V4Deployer.s.sol to deploy everything fresh as well
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
 
@@ -11,6 +14,7 @@ import {PoolClaimsTest} from "v4-core/test/PoolClaimsTest.sol";
 import {MockERC20} from "solmate/src/test/utils/mocks/MockERC20.sol";
 import {PoolKey} from "v4-core/types/PoolKey.sol";
 import {IHooks} from "v4-core/interfaces/IHooks.sol";
+import {Hooks} from "v4-core/libraries/Hooks.sol";
 import {IPoolManager} from "v4-core/interfaces/IPoolManager.sol";
 import {Currency} from "v4-core/types/Currency.sol";
 import {HookMiner} from "../test/HookMiner.sol";
@@ -59,7 +63,7 @@ contract HookMiningSample is Script {
         // Mine for hook address
         vm.stopBroadcast();
 
-        uint160 flags = uint160(1 << 7);
+        uint160 flags = uint160(Hooks.BEFORE_SWAP_FLAG);
 
         address CREATE2_DEPLOYER = 0x4e59b44847b379578588920cA78FbF26c0B4956C;
         (address hookAddress, bytes32 salt) = HookMiner.find(

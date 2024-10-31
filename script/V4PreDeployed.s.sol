@@ -27,7 +27,6 @@ contract V4PreDeployed is Script {
     Currency token1;
 
     PoolKey key;
-
     function setUp() public {
         vm.startBroadcast();
 
