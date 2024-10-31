@@ -86,7 +86,7 @@ contract HookMiningSample is Script {
         });
 
         // the second argument here is SQRT_PRICE_1_1
-        manager.initialize(key, 79228162514264337593543950336, new bytes(0));
+        manager.initialize(key, 79228162514264337593543950336);
         vm.stopBroadcast();
     }
 
